@@ -1,20 +1,23 @@
+// AI SPACE PUZZLE
+// For Pegasus Spiele 1st Edition
+
 include <lib/boardgame_insert_toolkit_lib.3.scad>;
 
 // determines whether lids are output.
-g_b_print_lid = t;
+g_b_print_lid = f;
 
 // determines whether boxes are output.
-g_b_print_box = t;
+g_b_print_box = !g_b_print_lid;
 
 // Focus on one box
-g_isolated_print_box = ""; 
+g_isolated_print_box = "card_stand_alt_box"; 
 
 // Used to visualize how all of the boxes fit together. 
 g_b_visualization = false;          
         
 // this is the outer wall thickness. 
 //Default = 1.5mm
-g_wall_thickness = (g_isolated_print_box == "tools" || g_isolated_print_box == "nano") ? 1.0 : 1.5;
+g_wall_thickness = 1.5;
 
 
 // The tolerance value is extra space put between planes of the lid and box that fit together.
@@ -33,108 +36,236 @@ g_tolerance = 0.15;
 // The larger the value, the bigger the gap between the lid and the box.
 g_tolerance_detents_pos = 0.1;
 
+cutout_size = 30;
+pickup_size = 15;
+
 data =
 [
-    ["cables", [
-        [BOX_SIZE_XYZ, [101.0, 91.5, 15.5] ],
+    ["cards", [
+        [BOX_SIZE_XYZ, [75.0, 27.0, 73.5] ],
+        [BOX_COMPONENT, [
+            [CMP_NUM_COMPARTMENTS_XY, [1, 1]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ 69.0, 9.0, 69.0]],
+            [CMP_CUTOUT_SIDES_4B, [t, t, f, f]],
+            [CMP_CUTOUT_HEIGHT_PCT, 40 ],
+            [CMP_CUTOUT_WIDTH_PCT, 50 ],
+            [POSITION_XY, [1.5,0]],
+        ]],
+        [BOX_COMPONENT, [
+            [CMP_NUM_COMPARTMENTS_XY, [1, 1]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ 69.0, 6.0, 69.0]],
+            [POSITION_XY, [1.5,10]],
+        ]],
+        [BOX_COMPONENT, [
+            [CMP_NUM_COMPARTMENTS_XY, [1, 1]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ 69.0, 3.0, 69.0]],
+            [POSITION_XY, [1.5,17]],
+        ]],
+        [BOX_COMPONENT, [
+            [CMP_NUM_COMPARTMENTS_XY, [1, 1]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ 69.0, 3.0, 69.0]],
+            [POSITION_XY, [1.5,21]],
+        ]],
+        [BOX_NO_LID_B, false],
+        [BOX_LID, [
+            [LID_FIT_UNDER_B, t],
+        ]],
+    ]],
+    ["hints_4", [
+        [BOX_SIZE_XYZ, [137.0, 70.0, 3.5] ],
         [BOX_COMPONENT, [
             [CMP_NUM_COMPARTMENTS_XY, [2, 1]],
-            [CMP_COMPARTMENT_SIZE_XYZ, [ 48.5, 30.0, 15.0]],
-            [POSITION_XY, [0,0]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ 26.0, 26.0, 2.0]],
+            [CMP_CUTOUT_SIDES_4B, [f, t, f, f]],
+            [CMP_PADDING_XY, [5, 1]],
+            [CMP_CUTOUT_HEIGHT_PCT, 50],
+            [CMP_CUTOUT_TYPE, EXTERIOR],
+            [CMP_CUTOUT_DEPTH_PCT, 50],
+            [CMP_CUTOUT_WIDTH_PCT, 70],
+            [CMP_CUTOUT_BOTTOM_B, f],
+            [POSITION_XY, [23+14,3]],
         ]],
         [BOX_COMPONENT, [
-            [CMP_NUM_COMPARTMENTS_XY, [1,1]],
-            [CMP_COMPARTMENT_SIZE_XYZ, [98, 57.5, 15.0]],
-            [POSITION_XY, [0,31]],
+            [CMP_NUM_COMPARTMENTS_XY, [2, 1]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ 26.0, 26.0, 2.0]],
+            [CMP_CUTOUT_SIDES_4B, [f, t, f, f]],
+            [CMP_PADDING_XY, [5, 1]],
+            [CMP_CUTOUT_HEIGHT_PCT, 50],
+            [CMP_CUTOUT_TYPE, EXTERIOR],
+            [CMP_CUTOUT_DEPTH_PCT, 50],
+            [CMP_CUTOUT_WIDTH_PCT, 70],
+            [CMP_CUTOUT_BOTTOM_B, f],
+            [POSITION_XY, [23+14,37]],
         ]],
-        [BOX_NO_LID_B, false],
+        [BOX_COMPONENT, [
+            [CMP_SHAPE, ROUND],
+            [CMP_SHAPE_VERTICAL_B, t],
+            [CMP_NUM_COMPARTMENTS_XY, [2, 1]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ cutout_size, cutout_size, 2.0]],
+            [CMP_PADDING_XY, [137-cutout_size, 1]],
+            [CMP_CUTOUT_BOTTOM_B, t],
+            [CMP_CUTOUT_BOTTOM_PCT, 100],
+            [POSITION_XY, [-(cutout_size)/2-1,(70-3-cutout_size)/2]],
+        ]],
+        [BOX_NO_LID_B, t],
         [BOX_LID, [
-            [LID_FIT_UNDER_B, f],
+            [LID_FIT_UNDER_B, t],
         ]],
     ]],
-    ["flags", [
-        [BOX_SIZE_XYZ, [79.0, 91.5, 15.5] ],
+    ["hints_5", [
+        [BOX_SIZE_XYZ, [137.0, 70.0, 3.5] ],
         [BOX_COMPONENT, [
             [CMP_NUM_COMPARTMENTS_XY, [3, 1]],
-            [CMP_COMPARTMENT_SIZE_XYZ, [ 24.6, 57.0, 15.0]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ 26.0, 26.0, 2.0]],
+            [CMP_CUTOUT_SIDES_4B, [f, t, f, f]],
+            [CMP_PADDING_XY, [5, 1]],
+            [CMP_CUTOUT_HEIGHT_PCT, 50],
+            [CMP_CUTOUT_TYPE, EXTERIOR],
+            [CMP_CUTOUT_DEPTH_PCT, 50],
+            [CMP_CUTOUT_WIDTH_PCT, 70],
+            [CMP_CUTOUT_BOTTOM_B, f],
+            [POSITION_XY, [23,3]],
+        ]],
+        [BOX_COMPONENT, [
+            [CMP_NUM_COMPARTMENTS_XY, [2, 1]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ 26.0, 26.0, 2.0]],
+            [CMP_CUTOUT_SIDES_4B, [f, t, f, f]],
+            [CMP_PADDING_XY, [5, 1]],
+            [CMP_CUTOUT_HEIGHT_PCT, 50],
+            [CMP_CUTOUT_TYPE, EXTERIOR],
+            [CMP_CUTOUT_DEPTH_PCT, 50],
+            [CMP_CUTOUT_WIDTH_PCT, 70],
+            [CMP_CUTOUT_BOTTOM_B, f],
+            [POSITION_XY, [23+14,37]],
+        ]],
+        [BOX_COMPONENT, [
+            [CMP_SHAPE, ROUND],
+            [CMP_SHAPE_VERTICAL_B, t],
+            [CMP_NUM_COMPARTMENTS_XY, [2, 1]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ cutout_size, cutout_size, 2.0]],
+            [CMP_PADDING_XY, [137-cutout_size, 1]],
+            [CMP_CUTOUT_BOTTOM_B, t],
+            [CMP_CUTOUT_BOTTOM_PCT, 100],
+            [POSITION_XY, [-(cutout_size)/2-1,(70-3-cutout_size)/2]],
+        ]],
+        [BOX_NO_LID_B, t],
+        [BOX_LID, [
+            [LID_FIT_UNDER_B, t],
+        ]],
+    ]],
+    ["hints_6", [
+        [BOX_SIZE_XYZ, [137.0, 70.0, 3.5] ],
+        [BOX_COMPONENT, [
+            [CMP_NUM_COMPARTMENTS_XY, [3, 1]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ 26.0, 26.0, 2.0]],
+            [CMP_CUTOUT_SIDES_4B, [f, t, f, f]],
+            [CMP_PADDING_XY, [5, 1]],
+            [CMP_CUTOUT_HEIGHT_PCT, 50],
+            [CMP_CUTOUT_TYPE, EXTERIOR],
+            [CMP_CUTOUT_DEPTH_PCT, 50],
+            [CMP_CUTOUT_WIDTH_PCT, 70],
+            [CMP_CUTOUT_BOTTOM_B, f],
+            [POSITION_XY, [23,3]],
+        ]],
+        [BOX_COMPONENT, [
+            [CMP_NUM_COMPARTMENTS_XY, [3, 1]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ 26.0, 26.0, 2.0]],
+            [CMP_CUTOUT_SIDES_4B, [f, t, f, f]],
+            [CMP_PADDING_XY, [5, 1]],
+            [CMP_CUTOUT_HEIGHT_PCT, 50],
+            [CMP_CUTOUT_TYPE, EXTERIOR],
+            [CMP_CUTOUT_DEPTH_PCT, 50],
+            [CMP_CUTOUT_WIDTH_PCT, 70],
+            [CMP_CUTOUT_BOTTOM_B, f],
+            [POSITION_XY, [23,37]],
+        ]],
+        [BOX_COMPONENT, [
+            [CMP_SHAPE, ROUND],
+            [CMP_SHAPE_VERTICAL_B, t],
+            [CMP_NUM_COMPARTMENTS_XY, [2, 1]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ cutout_size, cutout_size, 2.0]],
+            [CMP_PADDING_XY, [137-cutout_size, 1]],
+            [CMP_CUTOUT_BOTTOM_B, t],
+            [CMP_CUTOUT_BOTTOM_PCT, 100],
+            [POSITION_XY, [-(cutout_size)/2-1,(70-3-cutout_size)/2]],
+        ]],
+        [BOX_NO_LID_B, t],
+        [BOX_LID, [
+            [LID_FIT_UNDER_B, t],
+        ]],
+    ]],
+    ["hints_box", [
+        [BOX_SIZE_XYZ, [148.0, 74.0, 5*3.5+.5] ],
+        [BOX_COMPONENT, [
+            [CMP_NUM_COMPARTMENTS_XY, [1, 1]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ 143.0, 71.0, 15.0]],
+            [POSITION_XY, [0,0]],
+        ]],
+        [BOX_NO_LID_B, f],
+        [BOX_LID, [
+            [LID_FIT_UNDER_B, t],
+        ]],
+    ]],
+    ["player_util_box", [
+        [BOX_SIZE_XYZ, [162.0, 72.0, 18] ],
+        [BOX_COMPONENT, [
+            [CMP_NUM_COMPARTMENTS_XY, [1, 1]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ 40.0, 69.0, 18.0]],
             [POSITION_XY, [0,0]],
         ]],
         [BOX_COMPONENT, [
-            [CMP_NUM_COMPARTMENTS_XY, [1,1]],
-            [CMP_COMPARTMENT_SIZE_XYZ, [24.6, 30.5, 15.0]],
-            [POSITION_XY, [0,58]],
+            [CMP_NUM_COMPARTMENTS_XY, [1, 1]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ 67.0, 69.0, 18.0]],
+            [POSITION_XY, [41,0]],
         ]],
         [BOX_COMPONENT, [
-            [CMP_NUM_COMPARTMENTS_XY, [1,1]],
-            [CMP_COMPARTMENT_SIZE_XYZ, [50.2, 30.5, 15.0]],
-            [POSITION_XY, [25.6,58]],
+            [CMP_NUM_COMPARTMENTS_XY, [1, 1]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ 50.0, 34.0, 18.0]],
+            [POSITION_XY, [109,0]],
         ]],
-        [BOX_NO_LID_B, false],
+        [BOX_COMPONENT, [
+            [CMP_NUM_COMPARTMENTS_XY, [1, 1]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ 50.0, 34.0, 18.0]],
+            [POSITION_XY, [109,35]],
+        ]],
+        [BOX_NO_LID_B, f],
         [BOX_LID, [
-            [LID_FIT_UNDER_B, f],
+            [LID_FIT_UNDER_B, t],
         ]],
     ]],
-    ["greens", [
-        [BOX_SIZE_XYZ, [41.5, 91.5, 9.0] ],
+    ["card_stand_box", [
+        [BOX_SIZE_XYZ, [88.0, 75.0, 18] ],
         [BOX_COMPONENT, [
-            [CMP_NUM_COMPARTMENTS_XY, [1,1]],
-            [CMP_COMPARTMENT_SIZE_XYZ, [38.5, 88.5, 9.0]],
-            [POSITION_XY, [0, 0]],
+            [CMP_NUM_COMPARTMENTS_XY, [1, 1]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ 31.0, 23.0, 16.0]],
+            [POSITION_XY, [27,24.5]],
         ]],
-        [BOX_NO_LID_B, false],
+        [BOX_COMPONENT, [
+            [CMP_SHAPE, ROUND],
+            [CMP_SHAPE_VERTICAL_B, t],
+            [CMP_NUM_COMPARTMENTS_XY, [2, 1]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ pickup_size, pickup_size, 16.0]],
+            [CMP_PADDING_XY, [31-pickup_size, 1]],
+            [CMP_CUTOUT_BOTTOM_B, f],
+            [CMP_CUTOUT_BOTTOM_PCT, 100],
+            [POSITION_XY, [(88-3-31-pickup_size)/2,(75-3-pickup_size)/2]],
+        ]],
+        [BOX_NO_LID_B, f],
         [BOX_LID, [
-            [LID_FIT_UNDER_B, f],
+            [LID_FIT_UNDER_B, t],
         ]],
     ]],
-    ["missions", [
-        [BOX_SIZE_XYZ, [114.0, 91.5, 24.0] ],
+    ["card_stand_alt_box", [
+        [BOX_SIZE_XYZ, [88.0, 75.0, 18] ],
         [BOX_COMPONENT, [
-            [CMP_NUM_COMPARTMENTS_XY, [1,1]],
-            [CMP_COMPARTMENT_SIZE_XYZ, [36.0, 11.0, 12.0]],
-            [POSITION_XY, [0, 0]],
+            [CMP_NUM_COMPARTMENTS_XY, [1, 1]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ 85.0, 72.0, 16.5]],
         ]],
-        [BOX_COMPONENT, [
-            [CMP_NUM_COMPARTMENTS_XY, [1,1]],
-            [CMP_COMPARTMENT_SIZE_XYZ, [37.0, 11.0, 24.0]],
-            [CMP_CUTOUT_SIDES_4B, [ f, t, f, f ] ],
-            [CMP_CUTOUT_HEIGHT_PCT, 50 ],
-            [POSITION_XY, [37, 0]],
+        [BOX_NO_LID_B, f],
+        [BOX_LID, [
+            [LID_FIT_UNDER_B, t],
         ]],
-        [BOX_COMPONENT, [
-            [CMP_NUM_COMPARTMENTS_XY, [1,1]],
-            [CMP_COMPARTMENT_SIZE_XYZ, [36.0, 11.0, 12.0]],
-            [POSITION_XY, [75, 0]],
-        ]],
-        [BOX_COMPONENT, [
-            [CMP_NUM_COMPARTMENTS_XY, [1,1]],
-            [CMP_COMPARTMENT_SIZE_XYZ, [111, 77, 24.0]],
-            [CMP_CUTOUT_SIDES_4B, [ f, t, f, f ] ],
-            [CMP_CUTOUT_HEIGHT_PCT, 100 ],
-            [CMP_CUTOUT_DEPTH_PCT, 10 ],
-            [CMP_CUTOUT_TYPE, BOTH ],
-            [POSITION_XY, [0, 12]],
-        ]],
-        [BOX_NO_LID_B, true],
     ]],
-    ["nano", [
-        [BOX_SIZE_XYZ, [70.0, 91.5, 41.5] ],
-        [BOX_COMPONENT, [
-            [CMP_COMPARTMENT_SIZE_XYZ, [68.0, 89.5, 41.5]],
-        ]],
-        [BOX_NO_LID_B, true],
-    ]],
-    ["tools", [
-        [BOX_SIZE_XYZ, [66.5, 91.5, 24.0] ],
-        [BOX_COMPONENT, [
-            [CMP_COMPARTMENT_SIZE_XYZ, [64.5, 89.5, 24.0]],
-            [CMP_CUTOUT_SIDES_4B, [ t, f, f, f ] ],
-            [CMP_CUTOUT_HEIGHT_PCT, 100 ],
-            [CMP_CUTOUT_DEPTH_PCT, 10 ],
-            [CMP_CUTOUT_TYPE, BOTH ],
-        ]],
-        [BOX_NO_LID_B, true],
-    ]],
-
 
 ];
 

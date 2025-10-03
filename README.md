@@ -3,11 +3,20 @@ All inserts here are created with the [Boardgame Insert Toolkit](https://github.
 
 # The Inserts
 
+## AI Space Puzzle
+This insert fits the Pegasus 1st edition of AI Space Puzzle.\
+UNTESTED VERSION!\
+Not yet published.
+
 ## Bomb Busters
 This insert fits the Pegasus 1st edition of Bomb Busters.\
 Published on...\
 Makerworld: (not published yet)\
 Thingiverse: [https://www.thingiverse.com/thing:6798089]()
+
+## Ciub
+This insert fits the German version of Ciub.\
+Not published anywhere but here.
 
 ## Darwin's Choice
 This insert fits Darwin's Choice and the expansion Before and After.\

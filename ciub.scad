@@ -1,4 +1,4 @@
-include <lib/boardgame_insert_toolkit_lib.3.scad>;
+include <lib/boardgame_insert_toolkit_lib.2.scad>;
 
 // determines whether lids are output.
 g_b_print_lid = true;

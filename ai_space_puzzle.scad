@@ -10,7 +10,7 @@ g_b_print_lid = f;
 g_b_print_box = !g_b_print_lid;
 
 // Focus on one box
-g_isolated_print_box = "card_stand_alt_box"; 
+g_isolated_print_box = ""; 
 
 // Used to visualize how all of the boxes fit together. 
 g_b_visualization = false;          
@@ -41,7 +41,7 @@ pickup_size = 15;
 
 data =
 [
-    ["cards", [
+    ["cards_no_sleeves", [
         [BOX_SIZE_XYZ, [75.0, 27.0, 73.5] ],
         [BOX_COMPONENT, [
             [CMP_NUM_COMPARTMENTS_XY, [1, 1]],
@@ -64,6 +64,36 @@ data =
         [BOX_COMPONENT, [
             [CMP_NUM_COMPARTMENTS_XY, [1, 1]],
             [CMP_COMPARTMENT_SIZE_XYZ, [ 69.0, 3.0, 69.0]],
+            [POSITION_XY, [1.5,21]],
+        ]],
+        [BOX_NO_LID_B, false],
+        [BOX_LID, [
+            [LID_FIT_UNDER_B, t],
+        ]],
+    ]],
+    ["cards_sleeved", [
+        [BOX_SIZE_XYZ, [75.0, 27.0, 73.5] ],
+        [BOX_COMPONENT, [
+            [CMP_NUM_COMPARTMENTS_XY, [1, 1]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ 72.0, 9.0, 72.0]],
+            [CMP_CUTOUT_SIDES_4B, [t, t, f, f]],
+            [CMP_CUTOUT_HEIGHT_PCT, 40 ],
+            [CMP_CUTOUT_WIDTH_PCT, 50 ],
+            [POSITION_XY, [1.5,0]],
+        ]],
+        [BOX_COMPONENT, [
+            [CMP_NUM_COMPARTMENTS_XY, [1, 1]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ 72.0, 6.0, 72.0]],
+            [POSITION_XY, [1.5,10]],
+        ]],
+        [BOX_COMPONENT, [
+            [CMP_NUM_COMPARTMENTS_XY, [1, 1]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ 72.0, 3.0, 72.0]],
+            [POSITION_XY, [1.5,17]],
+        ]],
+        [BOX_COMPONENT, [
+            [CMP_NUM_COMPARTMENTS_XY, [1, 1]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ 72.0, 3.0, 72.0]],
             [POSITION_XY, [1.5,21]],
         ]],
         [BOX_NO_LID_B, false],
@@ -195,11 +225,10 @@ data =
         ]],
     ]],
     ["hints_box", [
-        [BOX_SIZE_XYZ, [148.0, 74.0, 5*3.5+.5] ],
+        [BOX_SIZE_XYZ, [144.0, 74.0, 5*3.5+.5+1.5] ],
         [BOX_COMPONENT, [
             [CMP_NUM_COMPARTMENTS_XY, [1, 1]],
-            [CMP_COMPARTMENT_SIZE_XYZ, [ 143.0, 71.0, 15.0]],
-            [POSITION_XY, [0,0]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ 138.0, 71.0, 5*3.5+.5]],
         ]],
         [BOX_NO_LID_B, f],
         [BOX_LID, [
@@ -207,26 +236,26 @@ data =
         ]],
     ]],
     ["player_util_box", [
-        [BOX_SIZE_XYZ, [162.0, 72.0, 18] ],
+        [BOX_SIZE_XYZ, [162.0, 69.0, 18] ],
         [BOX_COMPONENT, [
             [CMP_NUM_COMPARTMENTS_XY, [1, 1]],
-            [CMP_COMPARTMENT_SIZE_XYZ, [ 40.0, 69.0, 18.0]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ 40.0, 66.0, 18.0]],
             [POSITION_XY, [0,0]],
         ]],
         [BOX_COMPONENT, [
             [CMP_NUM_COMPARTMENTS_XY, [1, 1]],
-            [CMP_COMPARTMENT_SIZE_XYZ, [ 67.0, 69.0, 18.0]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ 67.0, 66.0, 18.0]],
             [POSITION_XY, [41,0]],
         ]],
         [BOX_COMPONENT, [
             [CMP_NUM_COMPARTMENTS_XY, [1, 1]],
-            [CMP_COMPARTMENT_SIZE_XYZ, [ 50.0, 34.0, 18.0]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ 50.0, 32.5, 18.0]],
             [POSITION_XY, [109,0]],
         ]],
         [BOX_COMPONENT, [
             [CMP_NUM_COMPARTMENTS_XY, [1, 1]],
-            [CMP_COMPARTMENT_SIZE_XYZ, [ 50.0, 34.0, 18.0]],
-            [POSITION_XY, [109,35]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ 50.0, 32.5, 18.0]],
+            [POSITION_XY, [109,33.5]],
         ]],
         [BOX_NO_LID_B, f],
         [BOX_LID, [

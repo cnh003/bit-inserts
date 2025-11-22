@@ -10,7 +10,7 @@ g_b_print_lid = f;
 g_b_print_box = !g_b_print_lid;
 
 // Focus on one box
-g_isolated_print_box = ""; 
+g_isolated_print_box = "card_stand_box"; 
 
 // Used to visualize how all of the boxes fit together. 
 g_b_visualization = false;          
@@ -236,7 +236,7 @@ data =
         ]],
     ]],
     ["player_util_box", [
-        [BOX_SIZE_XYZ, [162.0, 69.0, 18] ],
+        [BOX_SIZE_XYZ, [160.0, 69.0, 18] ],
         [BOX_COMPONENT, [
             [CMP_NUM_COMPARTMENTS_XY, [1, 1]],
             [CMP_COMPARTMENT_SIZE_XYZ, [ 40.0, 66.0, 18.0]],
@@ -244,18 +244,18 @@ data =
         ]],
         [BOX_COMPONENT, [
             [CMP_NUM_COMPARTMENTS_XY, [1, 1]],
-            [CMP_COMPARTMENT_SIZE_XYZ, [ 67.0, 66.0, 18.0]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ 65.0, 66.0, 18.0]],
             [POSITION_XY, [41,0]],
         ]],
         [BOX_COMPONENT, [
             [CMP_NUM_COMPARTMENTS_XY, [1, 1]],
             [CMP_COMPARTMENT_SIZE_XYZ, [ 50.0, 32.5, 18.0]],
-            [POSITION_XY, [109,0]],
+            [POSITION_XY, [107,0]],
         ]],
         [BOX_COMPONENT, [
             [CMP_NUM_COMPARTMENTS_XY, [1, 1]],
             [CMP_COMPARTMENT_SIZE_XYZ, [ 50.0, 32.5, 18.0]],
-            [POSITION_XY, [109,33.5]],
+            [POSITION_XY, [107,33.5]],
         ]],
         [BOX_NO_LID_B, f],
         [BOX_LID, [
@@ -263,7 +263,7 @@ data =
         ]],
     ]],
     ["card_stand_box", [
-        [BOX_SIZE_XYZ, [88.0, 75.0, 18] ],
+        [BOX_SIZE_XYZ, [86.0, 75.0, 18] ],
         [BOX_COMPONENT, [
             [CMP_NUM_COMPARTMENTS_XY, [1, 1]],
             [CMP_COMPARTMENT_SIZE_XYZ, [ 31.0, 23.0, 16.0]],
@@ -277,7 +277,7 @@ data =
             [CMP_PADDING_XY, [31-pickup_size, 1]],
             [CMP_CUTOUT_BOTTOM_B, f],
             [CMP_CUTOUT_BOTTOM_PCT, 100],
-            [POSITION_XY, [(88-3-31-pickup_size)/2,(75-3-pickup_size)/2]],
+            [POSITION_XY, [(86-3-31-pickup_size)/2,(75-3-pickup_size)/2]],
         ]],
         [BOX_NO_LID_B, f],
         [BOX_LID, [
@@ -285,10 +285,10 @@ data =
         ]],
     ]],
     ["card_stand_alt_box", [
-        [BOX_SIZE_XYZ, [88.0, 75.0, 18] ],
+        [BOX_SIZE_XYZ, [86.0, 75.0, 18] ],
         [BOX_COMPONENT, [
             [CMP_NUM_COMPARTMENTS_XY, [1, 1]],
-            [CMP_COMPARTMENT_SIZE_XYZ, [ 85.0, 72.0, 16.5]],
+            [CMP_COMPARTMENT_SIZE_XYZ, [ 83.0, 72.0, 16.5]],
         ]],
         [BOX_NO_LID_B, f],
         [BOX_LID, [

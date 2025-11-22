@@ -4,10 +4,10 @@ include <lib/boardgame_insert_toolkit_lib.3.scad>;
 g_b_print_lid = t;
 
 // determines whether boxes are output.
-g_b_print_box = t;
+g_b_print_box = !g_b_print_lid;
 
 // Focus on one box
-g_isolated_print_box = ""; 
+g_isolated_print_box = "greens"; 
 
 // Used to visualize how all of the boxes fit together. 
 g_b_visualization = false;          
@@ -91,18 +91,22 @@ data =
         [BOX_COMPONENT, [
             [CMP_NUM_COMPARTMENTS_XY, [1,1]],
             [CMP_COMPARTMENT_SIZE_XYZ, [36.0, 11.0, 12.0]],
+            [CMP_CUTOUT_SIDES_4B, [ t, f, f, f ] ],
+            [CMP_CUTOUT_HEIGHT_PCT, 5 ],
             [POSITION_XY, [0, 0]],
         ]],
         [BOX_COMPONENT, [
             [CMP_NUM_COMPARTMENTS_XY, [1,1]],
             [CMP_COMPARTMENT_SIZE_XYZ, [37.0, 11.0, 24.0]],
-            [CMP_CUTOUT_SIDES_4B, [ f, t, f, f ] ],
+            [CMP_CUTOUT_SIDES_4B, [ t, t, f, f ] ],
             [CMP_CUTOUT_HEIGHT_PCT, 50 ],
             [POSITION_XY, [37, 0]],
         ]],
         [BOX_COMPONENT, [
             [CMP_NUM_COMPARTMENTS_XY, [1,1]],
             [CMP_COMPARTMENT_SIZE_XYZ, [36.0, 11.0, 12.0]],
+            [CMP_CUTOUT_SIDES_4B, [ t, f, f, f ] ],
+            [CMP_CUTOUT_HEIGHT_PCT, 5 ],
             [POSITION_XY, [75, 0]],
         ]],
         [BOX_COMPONENT, [
